@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -25,12 +26,12 @@ public class MarvelController {
         this.validationService = validationService;
     }
 
-    @GetMapping(value = "/characters/{character}")
+    @PostMapping(value = "/characters/{character}")
     public ResponseREST getCharacter(@PathVariable String character) {
         return validationService.getCharacter(character);
     }
 
-    @GetMapping(value = "/colaborators/{character}")
+    @PostMapping(value = "/colaborators/{character}")
     public ResponseREST getColaborators(@PathVariable String character) {
         return validationService.getColaborators(character);
     }
